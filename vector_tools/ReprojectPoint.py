@@ -1,4 +1,6 @@
 def ReprojectPoint(geom_point, out_ref):
+    import osr
+    import ogr
     inSpatialRef = geom_point.GetSpatialReference()
     coordTrans = osr.CoordinateTransformation(inSpatialRef, out_ref)
     point_rep = ogr.CreateGeometryFromWkt("POINT (" + str(geom_point.GetX()) + " " + str(geom_point.GetY()) + ")")
